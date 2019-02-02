@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Point sellier</_name>
+    <id>math.fonddugarage.couture.pathdeform</id>
+    <dependency type="executable" location="extensions">pathmodifier.py</dependency>
+    <dependency type="executable" location="extensions">ps_couture.py</dependency>
+    <dependency type="executable" location="extensions">simplestyle.py</dependency>
+    <dependency type="executable" location="extensions">inkex.py</dependency>
+    <param name="tab" type="notebook">
+        <page name="Options" _gui-text="Options">
+        <param name="diamlong" type="string" _gui-text="Diametre-Longueur du point:" >1.0mm</param>
+        <param name="typePoint" type="optiongroup" _gui-text="Type de points">
+              <option value="LigneH">Ligne dans l'axe</option>
+              <option value="LigneV">Ligne perpendiculaire</option>
+              <option value="Cercle">Cercle</option>
+        </param>
+        <param name="textInfos" type="boolean" _gui-text="Texte">false</param>
+        <param name="space" type="string" _gui-text="Space between copies:" >3.0mm</param>
+        <param name="toffset" type="string" _gui-text="Décallage du 1er du point:" >0.1mm</param>
+        <param name="autoOffset" type="boolean" _gui-text="Calcul Auto du decallage">false</param>
+        <param name="nrepeat" type="int" _gui-text="repeat number:" min="1" max="1000">0.0</param>
+        <param name="autoRepeat" type="boolean" _gui-text="Calcul Auto du nombre">false</param>
+        </page>
+        <page name="Help" _gui-text="Help">
+            <_param name="title" type="description">This effect scatters or bends a pattern along arbitrary "skeleton" paths. The pattern is the topmost object in the selection. Groups of paths, shapes or clones are allowed.</_param>
+        </page>
+    </param>
+    <effect>
+    <object-type>path</object-type>
+        <effects-menu>
+            <submenu _name="Creation patron cuir"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command reldir="extensions" interpreter="python">ps_couture.py</command>
+    </script>
+</inkscape-extension>
